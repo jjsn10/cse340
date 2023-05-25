@@ -2,6 +2,7 @@
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
+const baseController = require("./controllers/baseController")
 /* ***********************
  * Require Statements
  *************************/
@@ -22,9 +23,10 @@ app.set("layout","./layouts/layout") // not at views root
  *************************/
 app.use(require("./routes/static"))
 //Index route
-app.get("/",function(req, res){
+app.get("/",baseController.buildHome)
+/*app.get("/",function(req, res){
   res.render("index",{title: "Home"})
-})
+})*/
 
 /* ***********************
  * Local Server Information
